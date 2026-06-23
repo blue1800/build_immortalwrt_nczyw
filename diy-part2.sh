@@ -45,7 +45,18 @@ function git_sparse_clone() {
 #curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh
 #chmod -R 777 add_turboacc.sh
 #bash add_turboacc.sh --no-sfe
+#添加自定义插件
+git clone --depth=1 https://github.com/stackia/rtp2httpd.git package
 
+git clone --depth=1 https://github.com/immortalwrt/homeproxy.git package/homeproxy
+
+git clone --depth=1 https://github.com/kiddin9/luci-theme-edge.git package/luci-theme-edge
+
+git clone --depth=1 https://github.com/Openwrt-Passwall/openwrt-passwall.git package/openwrt-passwall
+
+git clone --depth=1 https://github.com/vernesong/OpenClash.git package/openclash
+
+git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/openappfilter
 
 echo "
 # 主题
