@@ -64,9 +64,9 @@ echo "
 
 CONFIG_PACKAGE_luci-theme-argon=y
 
-CONFIG_PACKAGE_luci-theme-material=y
+#CONFIG_PACKAGE_luci-theme-material=y
 
-CONFIG_PACKAGE_luci-theme-openwrt-2020=y
+#CONFIG_PACKAGE_luci-theme-openwrt-2020=y
 
 #CONFIG_PACKAGE_luci-theme-alpha=y
 
