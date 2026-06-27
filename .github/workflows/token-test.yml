@@ -6,9 +6,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      # 读取仓库密钥里名为GH_TOKEN的值（ghp_123456）
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
+      # 新增关键步骤：拉取仓库代码，生成.git目录
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
       - name: 验证账号身份
         run: gh api user
 
