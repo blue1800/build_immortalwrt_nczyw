@@ -8,7 +8,6 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
-      # 新增关键步骤：拉取仓库代码，生成.git目录
       - name: Checkout repository code
         uses: actions/checkout@v4
 
@@ -20,9 +19,15 @@ jobs:
 
       - name: 测试删除Release权限（预检不真实删除）
         run: |
-          LATEST_TAG=$(gh release list --limit 1 --json tagName -q '.[0].tagName')
-          if [ -z "$LATEST_TAG" ]; then
-            echo "仓库无Release，跳过删除测试"
+          # 获取全部Release列表JSON
+          RELEASE_LIST=$(gh api repos/${{ github.repository }}/releases)
+          # 判断列表是否为空
+          if [[ "$RELEASE_LIST" == "[]" ]]; then
+            echo "✅ 当前仓库无任何Release，无需测试删除接口，权限校验完成"
             exit 0
           fi
+          # 提取第一条Release的tag_name
+          LATEST_TAG=$(echo $RELEASE_LIST | jq -r '.[0].tag_name')
+          echo "检测到Release标签：$LATEST_TAG，执行删除预检请求"
+          # 发送DELETE预检，仅校验权限
           gh api --method DELETE -i repos/${{ github.repository }}/releases/tags/$LATEST_TAG
