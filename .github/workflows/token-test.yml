@@ -1,0 +1,25 @@
+name: Test PAT Permission
+on:
+  workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      # 读取仓库密钥里名为GH_TOKEN的值（ghp_123456）
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    steps:
+      - name: 验证账号身份
+        run: gh api user
+
+      - name: 列出所有Release
+        run: gh release list
+
+      - name: 测试删除Release权限（预检不真实删除）
+        run: |
+          LATEST_TAG=$(gh release list --limit 1 --json tagName -q '.[0].tagName')
+          if [ -z "$LATEST_TAG" ]; then
+            echo "仓库无Release，跳过删除测试"
+            exit 0
+          fi
+          gh api --method DELETE -i repos/${{ github.repository }}/releases/tags/$LATEST_TAG
