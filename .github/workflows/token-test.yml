@@ -1,8 +1,25 @@
-# 1. 查询当前Token授权范围，验证是否包含release删除权限
-gh api -i /user
-echo "=== 校验Token授权Scope ==="
-gh api -i /user -H "Accept: application/vnd.github.v3+json" | grep X-OAuth-Scopes
+name: Test PAT Permission
+on:
+  workflow_dispatch
 
-# 2. 读取仓库权限，确认repo完整权限
-gh api repos/${{ github.repository }}
-echo "✅ 权限校验完成：只要返回200，代表repo/Release删除权限已具备"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    steps:
+      # 必须拉取仓库代码，避免not a git repo报错
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: 校验GH_TOKEN Release删除权限（无404风险）
+        run: |
+          # 1. 查询当前Token账号信息
+          gh api -i /user
+          echo "=== 校验Token授权Scope ==="
+          # 修复引号与Header语法
+          gh api -i /user -H 'Accept: application/vnd.github.v3+json' | grep X-OAuth-Scopes
+
+          # 2. 读取仓库权限，确认repo完整权限
+          gh api "repos/${{ github.repository }}"
+          echo "✅ 权限校验完成：只要返回200，代表repo/Release删除权限已具备"
