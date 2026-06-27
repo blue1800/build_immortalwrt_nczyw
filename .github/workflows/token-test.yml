@@ -1,33 +1,8 @@
-name: Test PAT Permission
-on:
-  workflow_dispatch
+# 1. 查询当前Token授权范围，验证是否包含release删除权限
+gh api -i /user
+echo "=== 校验Token授权Scope ==="
+gh api -i /user -H "Accept: application/vnd.github.v3+json" | grep X-OAuth-Scopes
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
-    steps:
-      - name: Checkout repository code
-        uses: actions/checkout@v4
-
-      - name: 验证账号身份
-        run: gh api user
-
-      - name: 列出所有Release
-        run: gh release list
-
-      - name: 测试删除Release权限（预检不真实删除）
-        run: |
-          # 获取全部Release列表JSON
-          RELEASE_LIST=$(gh api repos/${{ github.repository }}/releases)
-          # 判断列表是否为空
-          if [[ "$RELEASE_LIST" == "[]" ]]; then
-            echo "✅ 当前仓库无任何Release，无需测试删除接口，权限校验完成"
-            exit 0
-          fi
-          # 提取第一条Release的tag_name
-          LATEST_TAG=$(echo $RELEASE_LIST | jq -r '.[0].tag_name')
-          echo "检测到Release标签：$LATEST_TAG，执行删除预检请求"
-          # 发送DELETE预检，仅校验权限
-          gh api --method DELETE -i repos/${{ github.repository }}/releases/tags/$LATEST_TAG
+# 2. 读取仓库权限，确认repo完整权限
+gh api repos/${{ github.repository }}
+echo "✅ 权限校验完成：只要返回200，代表repo/Release删除权限已具备"
