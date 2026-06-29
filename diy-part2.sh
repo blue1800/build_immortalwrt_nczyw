@@ -58,11 +58,11 @@ git clone --depth=1 https://github.com/vernesong/OpenClash.git package/openclash
 
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/openappfilter
 
-git clone --depth=1 https://github.com/linkease/istore.git package/istore
+#git clone --depth=1 https://github.com/linkease/istore.git package/istore
 
-git clone --depth=1 https://github.com/linkease/nas-packages.git package/nas-packages
+#git clone --depth=1 https://github.com/linkease/nas-packages.git package/nas-packages
 
-git clone --depth=1 https://github.com/linkease/nas-packages-luci.git package/nas-packages-luci
+#git clone --depth=1 https://github.com/linkease/nas-packages-luci.git package/nas-packages-luci
 
 echo "
 # 主题
