@@ -119,6 +119,10 @@ CONFIG_PACKAGE_luci-theme-argon=y
 cp -f $GITHUB_WORKSPACE/99-default-settings package/emortal/default-settings/files/99-default-settings
 cp -f $GITHUB_WORKSPACE/banner package/base-files/files/etc/banner
 
+# 在你的本地仓库中执行
+mkdir -p files/etc/config
+mkdir -p files/etc/uci-defaults
+
 #设置启动脚本文件权限
 chmod +x files/etc/uci-defaults/99-custom.sh
 
