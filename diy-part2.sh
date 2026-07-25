@@ -119,6 +119,8 @@ sed -i 's/255.255.255.0/255.255.255.0/g' package/base-files/files/bin/config_gen
 cp -f $GITHUB_WORKSPACE/99-default-settings package/emortal/default-settings/files/99-default-settings
 cp -f $GITHUB_WORKSPACE/banner package/base-files/files/etc/banner
 
+#设置启动脚本文件权限
+chmod +x files/etc/uci-defaults/99-custom.sh
 # 修改主题背景
 #cp -f $GITHUB_WORKSPACE/argon/img/bg1.jpg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 #cp -f $GITHUB_WORKSPACE/argon/img/argon.svg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/argon.svg
