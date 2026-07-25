@@ -27,6 +27,8 @@ if [ -f /usr/bin/quickfile ]; then
     fi
 fi
 
-
+# 重启网络（使用 OpenWrt 标准方式）
+    /etc/init.d/network restart
+    
 # 脚本执行成功，退出
 exit 0
