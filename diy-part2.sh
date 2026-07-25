@@ -121,6 +121,24 @@ cp -f $GITHUB_WORKSPACE/banner package/base-files/files/etc/banner
 
 #设置启动脚本文件权限
 chmod +x files/etc/uci-defaults/99-custom.sh
+
+# 预设网络配置（在编译时就写入固件）
+cat > files/etc/config/network << 'EOF'
+config interface 'loopback'
+    option ifname 'lo'
+    option proto 'static'
+    option ipaddr '127.0.0.1'
+    option netmask '255.0.0.0'
+
+config interface 'lan'
+    option type 'bridge'
+    option ifname 'eth0'
+    option proto 'static'
+    option ipaddr '192.168.100.27'
+    option netmask '255.255.255.0'
+    option gateway '192.168.100.1'
+    option dns '202.96.209.133'
+EOF
 # 修改主题背景
 #cp -f $GITHUB_WORKSPACE/argon/img/bg1.jpg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 #cp -f $GITHUB_WORKSPACE/argon/img/argon.svg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/argon.svg
