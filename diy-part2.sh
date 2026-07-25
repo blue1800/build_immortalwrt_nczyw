@@ -126,7 +126,7 @@ mkdir -p files/etc/uci-defaults
 #设置启动脚本文件权限
 chmod +x files/etc/uci-defaults/99-custom.sh
 
-# 预设网络配置（在编译时就写入固件）
+# 预设网络配置（使用 OpenWrt 21.02+ 新语法）
 cat > files/etc/config/network << 'EOF'
 config interface 'loopback'
     option ifname 'lo'
@@ -134,9 +134,14 @@ config interface 'loopback'
     option ipaddr '127.0.0.1'
     option netmask '255.0.0.0'
 
-config interface 'lan'
+config device
+    option name 'br-lan'
     option type 'bridge'
-    option ifname 'eth0'
+    list ports 'eth0'
+    list ports 'eth1'
+
+config interface 'lan'
+    option device 'br-lan'
     option proto 'static'
     option ipaddr '192.168.100.27'
     option netmask '255.255.255.0'
