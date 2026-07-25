@@ -27,10 +27,6 @@ if [ -f /usr/bin/quickfile ]; then
     fi
 fi
 
-# 提交配置
-uci commit network
 
-# 重启网络
-service network restart
 # 脚本执行成功，退出
 exit 0
