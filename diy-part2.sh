@@ -143,6 +143,13 @@ config interface 'lan'
     option gateway '192.168.100.1'
     option dns '202.96.209.133'
 EOF
+
+# 提交配置
+uci commit network
+
+# 重启网络
+service network restart
+
 # 修改主题背景
 #cp -f $GITHUB_WORKSPACE/argon/img/bg1.jpg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 #cp -f $GITHUB_WORKSPACE/argon/img/argon.svg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/argon.svg
