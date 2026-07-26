@@ -146,6 +146,7 @@ config interface 'lan'
     option ipaddr '192.168.100.27'
     option netmask '255.255.255.0'
     option gateway '192.168.100.1'
+    option broadcast '192.168.100.255'
     option dns '202.96.209.133'
 EOF
 
