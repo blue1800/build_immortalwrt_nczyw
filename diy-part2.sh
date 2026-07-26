@@ -129,7 +129,7 @@ chmod +x files/etc/uci-defaults/99-custom.sh
 # 预设网络配置（使用 OpenWrt 21.02+ 新语法）
 cat > files/etc/config/network << 'EOF'
 config interface 'loopback'
-    option ifname 'lo'
+    option device 'lo'
     option proto 'static'
     option ipaddr '127.0.0.1'
     option netmask '255.0.0.0'
