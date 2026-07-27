@@ -52,7 +52,8 @@ git clone --depth=1 https://github.com/Openwrt-Passwall/openwrt-passwall.git pac
 
 git clone --depth=1 https://github.com/vernesong/OpenClash.git package/openclash
 
-git clone --depth=1 https://github.com/stackia/rtp2httpd.git package/rtp2httpd
+#git clone --depth=1 https://github.com/stackia/rtp2httpd.git package/rtp2httpd
+git_sparse_clone main https://github.com/stackia/rtp2httpd openwrt-support
 
 git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/openappfilter
 
