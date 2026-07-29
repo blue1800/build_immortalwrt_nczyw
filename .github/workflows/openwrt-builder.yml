@@ -85,20 +85,6 @@ jobs:
     - name: 更新 feeds
       run: cd openwrt && ./scripts/feeds update -a
 
-     - name: patch luci-app-rtp2httpd Makefile remove Makefile.versioned
-       run: 
-         cd feeds/luci-app-rtp2httpd
-        # 注释 include Makefile.versioned 这一行
-         sed -i '/include \$(INCLUDE_DIR)\/Makefile.versioned/s/^/#/' Makefile
-         cat Makefile | grep Makefile.versioned
-
-    - name: clean rtp2httpd old build cache
-      run: |
-        rm -rf build_dir/*/luci-app-rtp2httpd*
-        rm -rf bin/packages/*/luci-app-rtp2httpd*.apk
-        rm -rf build_dir/*/rtp2httpd*
-        rm -rf bin/packages/*/rtp2httpd*.apk
-
     - name: 安装 feeds
       run: cd openwrt && ./scripts/feeds install -a
 
