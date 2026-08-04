@@ -22,7 +22,7 @@
 echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
 echo 'src-git nas https://github.com/linkease/nas-packages.git;master' >> feeds.conf.default
 echo 'src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' >> feeds.conf.default
-sed -i '1i src-git rtp2httpd https://github.com/stackia/rtp2httpd.git;main' feeds.conf.default
+#sed -i '1i src-git rtp2httpd https://github.com/stackia/rtp2httpd.git;main' feeds.conf.default
 #echo 'src-git-full rtp2httpd https://github.com/stackia/rtp2httpd.git;main' >> feeds.conf.default
 #echo 'src-git rtp2httpd https://github.com/stackia/rtp2httpd.git;main' >> feeds.conf.default
 #echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main' >> feeds.conf.default
