@@ -151,6 +151,27 @@ config interface 'lan'
     option dns '202.96.209.133'
 EOF
 
+#编译immortalwrt固件的插件rtp2httpd代码
+# 进入openwrt目录
+cd openwrt || exit 1
+
+# 设置自定义包目录
+CUSTOM_DIR="package/mypackages"  # 使用更明确的目录名
+mkdir -p "${CUSTOM_DIR}"
+
+# 克隆源码
+git clone https://github.com/stackia/rtp2httpd.git package/stackia/rtp2httpd
+
+# 移动文件
+mv -vf package/stackia/rtp2httpd/openwrt-support/luci-app-rtp2httpd/ "${CUSTOM_DIR}/"
+mv -vf package/stackia/rtp2httpd/openwrt-support/rtp2httpd/ "${CUSTOM_DIR}/"
+
+# 清理
+rm -rf package/stackia/
+
+# 重命名Makefile
+mv -vf "${CUSTOM_DIR}/luci-app-rtp2httpd/Makefile.versioned" "${CUSTOM_DIR}/luci-app-rtp2httpd/Makefile"
+mv -vf "${CUSTOM_DIR}/rtp2httpd/Makefile.versioned" "${CUSTOM_DIR}/rtp2httpd/Makefile"
 
 # 修改主题背景
 #cp -f $GITHUB_WORKSPACE/argon/img/bg1.jpg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
