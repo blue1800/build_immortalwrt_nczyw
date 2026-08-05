@@ -46,28 +46,28 @@ function git_sparse_clone() {
 #chmod -R 777 add_turboacc.sh
 #bash add_turboacc.sh --no-sfe
 #添加自定义插件
-git clone --depth=1 https://github.com/immortalwrt/homeproxy.git package/homeproxy
+##git clone --depth=1 https://github.com/immortalwrt/homeproxy.git package/homeproxy
 
-git clone --depth=1 https://github.com/Openwrt-Passwall/openwrt-passwall.git package/openwrt-passwall
+##git clone --depth=1 https://github.com/Openwrt-Passwall/openwrt-passwall.git package/openwrt-passwall
 
-git clone --depth=1 https://github.com/vernesong/OpenClash.git package/openclash
+##git clone --depth=1 https://github.com/vernesong/OpenClash.git package/openclash
 
 #git clone --depth=1 https://github.com/stackia/rtp2httpd.git package/rtp2httpd
 #git_sparse_clone main https://github.com/stackia/rtp2httpd openwrt-support
 
-git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/openappfilter
+##git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/openappfilter
 
-git clone --depth=1 https://github.com/sbwml/luci-app-quickfile.git package/quickfile
+##git clone --depth=1 https://github.com/sbwml/luci-app-quickfile.git package/quickfile
 
-git clone --depth=1 https://github.com/kiddin9/luci-theme-edge.git package/luci-theme-edge
+##git clone --depth=1 https://github.com/kiddin9/luci-theme-edge.git package/luci-theme-edge
 
-git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+##git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+##git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
-git clone --depth=1 https://github.com/sirpdboy/luci-theme-kucat.git package/luci-theme-kucat
+##git clone --depth=1 https://github.com/sirpdboy/luci-theme-kucat.git package/luci-theme-kucat
 
-git clone --depth=1 https://github.com/sirpdboy/luci-app-kucat-config.git package/luci-app-kucat-config
+##git clone --depth=1 https://github.com/sirpdboy/luci-app-kucat-config.git package/luci-app-kucat-config
 
 #git clone --depth=1 https://github.com/linkease/istore.git package/istore
 
