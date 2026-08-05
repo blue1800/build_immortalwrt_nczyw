@@ -43,8 +43,8 @@ mv -vf package/stackia/rtp2httpd/openwrt-support/rtp2httpd/ "${CUSTOM_DIR}/"
 rm -rf package/stackia/
 
 # 重命名Makefile
-#mv -vf "${CUSTOM_DIR}/luci-app-rtp2httpd/Makefile.versioned" "${CUSTOM_DIR}/luci-app-rtp2httpd/Makefile"
-#mv -vf "${CUSTOM_DIR}/rtp2httpd/Makefile.versioned" "${CUSTOM_DIR}/rtp2httpd/Makefile"
+mv -vf "${CUSTOM_DIR}/luci-app-rtp2httpd/Makefile.versioned" "${CUSTOM_DIR}/luci-app-rtp2httpd/Makefile"
+mv -vf "${CUSTOM_DIR}/rtp2httpd/Makefile.versioned" "${CUSTOM_DIR}/rtp2httpd/Makefile"
 
 # 返回上级目录(可选)
 #cd - || exit 1
