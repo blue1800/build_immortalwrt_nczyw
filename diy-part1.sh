@@ -80,9 +80,9 @@ git clone --depth=1 https://github.com/sirpdboy/luci-app-kucat-config.git packag
 # 返回上级目录(可选)
 #cd - || exit 1
 
-rm -rf package/feeds/packages/rtp2httpd
-rm -rf package/feeds/luci/luci-app-rtp2httpd
-git clone -b v3.15.3 --depth=1 https://github.com/stackia/rtp2httpd.git package/luci-app-rtp2httpd
+#rm -rf package/feeds/packages/rtp2httpd
+#rm -rf package/feeds/luci/luci-app-rtp2httpd
+#git clone -b v3.15.3 --depth=1 https://github.com/stackia/rtp2httpd.git package/luci-app-rtp2httpd
 
 #echo 'src-git-full rtp2httpd https://github.com/stackia/rtp2httpd.git;main' >> feeds.conf.default
 #echo 'src-git rtp2httpd https://github.com/stackia/rtp2httpd.git;main' >> feeds.conf.default
