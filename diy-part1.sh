@@ -60,26 +60,29 @@ git clone --depth=1 https://github.com/sirpdboy/luci-app-kucat-config.git packag
 #cd openwrt || exit 1
 
 # 设置自定义包目录
-CUSTOM_DIR="package/mypackages"  # 使用更明确的目录名
-mkdir -p "${CUSTOM_DIR}"
+##CUSTOM_DIR="package/mypackages"  # 使用更明确的目录名
+##mkdir -p "${CUSTOM_DIR}"
 
 # 克隆源码
-git clone https://github.com/stackia/rtp2httpd.git package/stackia/rtp2httpd
+##git clone https://github.com/stackia/rtp2httpd.git package/stackia/rtp2httpd
 
 # 移动文件
-mv -vf package/stackia/rtp2httpd/openwrt-support/luci-app-rtp2httpd/ "${CUSTOM_DIR}/"
-mv -vf package/stackia/rtp2httpd/openwrt-support/rtp2httpd/ "${CUSTOM_DIR}/"
+##mv -vf package/stackia/rtp2httpd/openwrt-support/luci-app-rtp2httpd/ "${CUSTOM_DIR}/"
+##mv -vf package/stackia/rtp2httpd/openwrt-support/rtp2httpd/ "${CUSTOM_DIR}/"
 
 # 清理
-rm -rf package/stackia/
+##rm -rf package/stackia/
 
 # 重命名Makefile
-mv -vf "${CUSTOM_DIR}/luci-app-rtp2httpd/Makefile.versioned" "${CUSTOM_DIR}/luci-app-rtp2httpd/Makefile"
-mv -vf "${CUSTOM_DIR}/rtp2httpd/Makefile.versioned" "${CUSTOM_DIR}/rtp2httpd/Makefile"
+##mv -vf "${CUSTOM_DIR}/luci-app-rtp2httpd/Makefile.versioned" "${CUSTOM_DIR}/luci-app-rtp2httpd/Makefile"
+##mv -vf "${CUSTOM_DIR}/rtp2httpd/Makefile.versioned" "${CUSTOM_DIR}/rtp2httpd/Makefile"
 
 # 返回上级目录(可选)
 #cd - || exit 1
 
+rm -rf package/feeds/packages/rtp2httpd
+rm -rf package/feeds/luci/luci-app-rtp2httpd
+git clone -b v3.15.3 --depth=1 https://github.com/stackia/rtp2httpd.git package/luci-app-rtp2httpd
 
 #echo 'src-git-full rtp2httpd https://github.com/stackia/rtp2httpd.git;main' >> feeds.conf.default
 #echo 'src-git rtp2httpd https://github.com/stackia/rtp2httpd.git;main' >> feeds.conf.default
