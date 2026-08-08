@@ -159,6 +159,8 @@ rm -rf ./feeds/luci/applications/luci-app-rtp2httpd
 rm -rf ./feeds/luci/applications/luci-app-homeproxy
 rm -rf ./feeds/luci/applications/luci-app-openclash
 rm -rf ./feeds/luci/applications/luci-app-passwall
+rm -rf ./feeds/luci/themes/luci-theme-argon
+rm -rf ./feeds/luci/applications/luci-app-argon-config
 
 git clone -b v3.15.3 --depth=1 https://github.com/stackia/rtp2httpd.git package/luci-app-rtp2httpd
 
