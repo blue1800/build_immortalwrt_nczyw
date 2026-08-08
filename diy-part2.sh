@@ -151,8 +151,11 @@ config interface 'lan'
     option dns '202.96.209.133'
 EOF
 
-rm -rf package/feeds/packages/rtp2httpd
-rm -rf package/feeds/luci/luci-app-rtp2httpd
+#rm -rf package/feeds/packages/rtp2httpd
+#rm -rf package/feeds/luci/luci-app-rtp2httpd
+#git clone -b v3.15.3 --depth=1 https://github.com/stackia/rtp2httpd.git package/luci-app-rtp2httpd
+rm -rf ./feeds/packages/net/rtp2httpd
+rm -rf ./feeds/luci/applications/luci-app-rtp2httpd
 git clone -b v3.15.3 --depth=1 https://github.com/stackia/rtp2httpd.git package/luci-app-rtp2httpd
 
 # 修改主题背景
