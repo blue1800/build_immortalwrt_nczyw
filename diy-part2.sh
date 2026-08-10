@@ -154,13 +154,39 @@ EOF
 #rm -rf package/feeds/packages/rtp2httpd
 #rm -rf package/feeds/luci/luci-app-rtp2httpd
 #git clone -b v3.15.3 --depth=1 https://github.com/stackia/rtp2httpd.git package/luci-app-rtp2httpd
+
+#rm -rf ./feeds/packages/net/rtp2httpd
+#rm -rf ./feeds/luci/applications/luci-app-rtp2httpd
+#rm -rf ./feeds/luci/applications/luci-app-homeproxy
+#rm -rf ./feeds/luci/applications/luci-app-openclash
+#rm -rf ./feeds/luci/applications/luci-app-passwall
+#rm -rf ./feeds/luci/themes/luci-theme-argon
+#rm -rf ./feeds/luci/applications/luci-app-argon-config
+
 rm -rf ./feeds/packages/net/rtp2httpd
+rm -rf ./package/feeds/packages/rtp2httpd
+
 rm -rf ./feeds/luci/applications/luci-app-rtp2httpd
+rm -rf ./package/feeds/luci/luci-app-rtp2httpd
+
+rm -rf ./feeds/luci/applications/luci-app-appfilter
+rm -rf ./package/feeds/luci/luci-app-appfilter
+
 rm -rf ./feeds/luci/applications/luci-app-homeproxy
+rm -rf ./package/feeds/luci/luci-app-homeproxy
+
 rm -rf ./feeds/luci/applications/luci-app-openclash
+rm -rf ./package/feeds/luci/luci-app-openclash
+
 rm -rf ./feeds/luci/applications/luci-app-passwall
+rm -rf ./package/feeds/luci/luci-app-passwall
+
 rm -rf ./feeds/luci/themes/luci-theme-argon
+rm -rf ./package/feeds/luci/luci-theme-argon
+
 rm -rf ./feeds/luci/applications/luci-app-argon-config
+rm -rf ./package/feeds/luci/luci-app-argon-config
+
 
 git clone -b v3.15.3 --depth=1 https://github.com/stackia/rtp2httpd.git package/luci-app-rtp2httpd
 
@@ -183,6 +209,8 @@ git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config.git packa
 git clone --depth=1 https://github.com/sirpdboy/luci-theme-kucat.git package/luci-theme-kucat
 
 git clone --depth=1 https://github.com/sirpdboy/luci-app-kucat-config.git package/luci-app-kucat-config
+
+git clone --depth=1 https://github.com/sirpdboy/netspeedtest.git package/luci-app-netspeedtest
 
 
 # 修改主题背景
